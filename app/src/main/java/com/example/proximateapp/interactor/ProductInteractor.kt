@@ -1,4 +1,5 @@
 import android.util.Log
+import androidx.core.app.ShareCompat
 import com.example.proximateapp.contract.ProductContract
 import com.example.proximateapp.entity.ProductData
 import com.example.proximateapp.entity.ProductRequest

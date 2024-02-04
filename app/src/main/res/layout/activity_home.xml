@@ -8,19 +8,37 @@
     tools:context=".view.HomeActivity">
 
     <!-- Contenido Principal -->
-    <FrameLayout
-        android:id="@+id/frame_layout"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Aquí coloca el contenido principal de tu actividad -->
-        <!-- Por ejemplo, una RecyclerView para mostrar la lista de productos -->
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_products"
+        <!-- Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout>
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/orange"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+        <!-- FrameLayout para el contenido principal -->
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize">
+
+            <!-- Aquí coloca el contenido principal de tu actividad -->
+            <!-- Por ejemplo, una RecyclerView para mostrar la lista de productos -->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_products"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <!-- Menú Lateral -->
     <com.google.android.material.navigation.NavigationView

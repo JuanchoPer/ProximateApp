@@ -13,7 +13,7 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
     private val products: MutableList<Product> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product_card, parent, false)
         return ProductViewHolder(view)
     }
 
@@ -32,7 +32,6 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
         notifyDataSetChanged()
     }
 
-
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTextView: TextView = itemView.findViewById(R.id.tv_title)
         private val imageView: ImageView = itemView.findViewById(R.id.iv_image)
@@ -42,9 +41,9 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
             titleTextView.text = product.title
             descriptionTextView.text = product.shortDescription
             Glide.with(itemView.context)
-                .load(product.image) // Debes asegurarte de que product.image sea una URL válida o un recurso de imagen
+                .load(product.image)
                 .placeholder(R.drawable.ic_image_default)
-                .error(R.drawable.ic_image_default)
+                .error(R.drawable.ic_no_image)
                 .into(imageView)
         }
     }
