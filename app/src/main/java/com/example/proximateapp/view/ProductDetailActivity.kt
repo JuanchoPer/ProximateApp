@@ -34,8 +34,8 @@ class ProductDetailActivity : AppCompatActivity() {
 
         Glide.with(this)
             .load(productImage)
-            .placeholder(R.drawable.ic_image_default) // Puedes establecer una imagen de carga predeterminada
-            .error(R.drawable.ic_no_image) // Puedes establecer una imagen de error si la carga falla
+            .placeholder(R.drawable.ic_image_default)
+            .error(R.drawable.ic_no_image)
             .into(ivDetail)
     }
 }
