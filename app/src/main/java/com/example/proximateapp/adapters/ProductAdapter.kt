@@ -1,3 +1,4 @@
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.proximateapp.R
 import com.example.proximateapp.entity.Product
+import com.example.proximateapp.view.ProductDetailActivity
 
 class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
@@ -17,9 +19,23 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() 
         return ProductViewHolder(view)
     }
 
+    fun getProducts(): List<Product> {
+        return products
+    }
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = products[position]
         holder.bind(product)
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, ProductDetailActivity::class.java)
+
+            intent.putExtra("productId", product.id)
+            intent.putExtra("productName", product.title)
+            intent.putExtra("productDescription", product.longDescription)
+            intent.putExtra("productImage", product.image)
+
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

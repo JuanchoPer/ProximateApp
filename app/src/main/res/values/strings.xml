@@ -4,4 +4,8 @@
     <string name="navigation_drawer_open">Abrir menú</string>
     <string name="navigation_drawer_close">Cerrar menú</string>
 
+    <string name="toolbar_logout">Cerrar Sesión</string>
+    <string name="title_home">Home</string>
+    <string name="text_test">Textooooo</string>
+
 </resources>

@@ -13,9 +13,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import com.example.proximateapp.view.HomeActivity
+import com.google.android.material.textfield.TextInputLayout
 
 
-class LoginInteractor (private val context: Context){
+class LoginInteractor(private val context: Context) {
     private val apiService: ApiService = RetrofitClient.apiService
 
     interface LoginCallback {
@@ -25,7 +26,8 @@ class LoginInteractor (private val context: Context){
 
     fun login(username: String, password: String, callback: LoginCallback) {
         val request = LoginRequest(username, password)
-        val call : Call<LoginResponse> = apiService.login(request)
+        val call: Call<LoginResponse> = apiService.login(request)
+
 
         call.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
@@ -39,7 +41,8 @@ class LoginInteractor (private val context: Context){
                                     val jsonData = JSONObject(responseData)
                                     val token = jsonData.getString("userToken")
 
-                                    val sharePreferences = context.getSharedPreferences("login", Context.MODE_PRIVATE)
+                                    val sharePreferences =
+                                        context.getSharedPreferences("login", Context.MODE_PRIVATE)
                                     val edit: SharedPreferences.Editor = sharePreferences.edit()
                                     edit.putString("userToken", token)
                                     edit.apply()

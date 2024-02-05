@@ -15,19 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProximateApp"
         tools:targetApi="31">
+
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".view.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.HomeActivity"
-            android:label="Home">
-
-        </activity>
+        <activity android:name=".view.LoginActivity" />
+        <activity android:name=".view.HomeActivity" />
+        <activity android:name=".view.ProductDetailActivity" />
     </application>
 
 </manifest>

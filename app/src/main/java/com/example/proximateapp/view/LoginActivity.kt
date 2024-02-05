@@ -10,6 +10,8 @@ import android.widget.Toast
 import com.example.proximateapp.R
 import com.example.proximateapp.contract.LoginContract
 import com.example.proximateapp.presenter.LoginPresenter
+import com.google.android.material.textfield.TextInputLayout
+
 
 class LoginActivity : AppCompatActivity(), LoginContract.View {
     private lateinit var userName: EditText
@@ -17,6 +19,8 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     private lateinit var loginButton: Button
     private lateinit var progressBar: ProgressBar
     private lateinit var presenter: LoginContract.Presenter
+    private lateinit var tilUser: TextInputLayout
+    private lateinit var tilPass: TextInputLayout
 
     override fun getContext(): Context {
         return this
@@ -30,14 +34,15 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         password = findViewById(R.id.et_pass)
         loginButton = findViewById(R.id.bt_login)
         progressBar = findViewById(R.id.progressBar)
+        tilUser = findViewById(R.id.til_user)
+        tilPass = findViewById(R.id.til_pass)
 
-        presenter = LoginPresenter(this)
+        presenter = LoginPresenter(this, tilUser, tilPass)
 
-        loginButton.setOnClickListener{
-            //val user = userName.text.toString()
-           // val pass = password.text.toString()
-           //presenter.login(user, pass)
-            presenter.login("1075258635", "testProximate")
+        loginButton.setOnClickListener {
+            val user = userName.text.toString()
+            val pass = password.text.toString()
+            presenter.login(user, pass)
         }
     }
 
@@ -54,6 +59,6 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     }
 
     override fun showLoginError(error: String) {
-        Toast.makeText(this, "Error de inicio de sesion: $error", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
     }
 }

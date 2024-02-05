@@ -30,7 +30,10 @@ class ProductInteractor : ProductContract.Interactor {
                     val productResponse = response.body()
                     if (productResponse != null) {
                         val data = productResponse.data
-                        if (data != null && data.isNotBlank() && data.startsWith("{") && data.endsWith("}")) {
+                        if (data != null && data.isNotBlank() && data.startsWith("{") && data.endsWith(
+                                "}"
+                            )
+                        ) {
                             val productData = Gson().fromJson(data, ProductData::class.java)
                             callback.productInteractorSuccesses(productData)
                         } else {
