@@ -58,7 +58,7 @@ class LoginInteractor(private val context: Context) {
                                 callback.loginInteractorError("La respuesta no contiene datos válidos")
                             }
                         } else {
-                            callback.loginInteractorError("Respuesta vacía del servidor")
+                            callback.loginInteractorError(loginResponse.mesagge)
                         }
                     } else {
                         callback.loginInteractorError("Respuesta vacía del servidor")

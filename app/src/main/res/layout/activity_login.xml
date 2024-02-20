@@ -17,52 +17,82 @@
         android:padding="15dp"
         android:src="@drawable/ic_logo" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_user"
+    <RelativeLayout
+        android:id="@+id/userLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/iv_logo"
-        android:layout_marginLeft="15dp"
+        android:layout_below="@id/iv_logo"
         android:layout_marginTop="15dp"
-        android:layout_marginRight="15dp"
-        android:hint="Ingrese su usuario"
-        app:errorEnabled="true">
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_user"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/userIcon"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:src="@drawable/ic_user"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_user"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:hint="Ingrese su usuario"
+            android:layout_toEndOf="@id/userIcon"
+            app:errorEnabled="true">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_pass"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/passLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/til_user"
-        android:layout_marginLeft="15dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/userLayout"
         android:layout_marginTop="15dp"
-        android:layout_marginRight="15dp"
-        android:hint="Ingrese su contraseña"
-        app:endIconMode="password_toggle"
-        app:errorEnabled="true">
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_pass"
+        <ImageView
+            android:id="@+id/passIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_pass"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawablePadding="25dp"
-            android:inputType="textPassword"
-            android:tag="password_toggle" />
+            android:hint="Ingrese su contraseña"
+            android:layout_toEndOf="@id/passIcon"
+            app:errorEnabled="true"
+            app:endIconMode="password_toggle">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bt_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/til_pass"
+        android:layout_below="@+id/passLayout"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="15dp"

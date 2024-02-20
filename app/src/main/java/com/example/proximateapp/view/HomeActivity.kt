@@ -44,7 +44,6 @@ class HomeActivity : AppCompatActivity(), ProductContract.View {
         recyclerView = findViewById(R.id.recycler_view_products)
         progressBarHome = findViewById(R.id.progressBarHome)
 
-        val toolbar = findViewById<ConstraintLayout>(R.id.cl_toolbar)
         val ivLogout = findViewById<ImageView>(R.id.iv_logout)
         val ivMenu = findViewById<ImageView>(R.id.iv_menu)
 
@@ -133,5 +132,4 @@ class HomeActivity : AppCompatActivity(), ProductContract.View {
         }
         return null
     }
-
 }
